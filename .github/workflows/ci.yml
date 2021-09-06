@@ -1,0 +1,27 @@
+name: CI
+
+on: [push, pull_request]
+
+jobs:
+  test:
+    runs-on: ubuntu-20.04
+    strategy:
+      fail-fast: false
+      matrix:
+        node-version: [12.x, 14.x, 16.x]
+        stimulus: [3.0.0-beta.1]
+
+    name: node ${{ matrix.node-version }}, stimulus ${{ matrix.stimulus }}
+
+    steps:
+    - uses: actions/checkout@v2
+    - uses: actions/setup-node@v1
+      with:
+        node-version: ${{ matrix.node-version }}
+    - name: Install
+      run: |
+        npm install
+        npm install @hotwired/stimulus@${{ matrix.stimulus }}
+    - name: Run test
+      run: |
+        npm run test
