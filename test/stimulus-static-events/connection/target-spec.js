@@ -12,16 +12,11 @@ class TestController extends Controller {
 const application = Application.start();
 application.register('test', TestController);
 
-describe('reconnect target', () => {
+describe('connect target', () => {
   beforeEach(() => {
     document.body.innerHTML = `
       <div data-controller="test">
-        <button type="button" id="button" data-test-target="button">Test</button>
       </div>`;
-  });
-
-  beforeEach(() => {
-    document.querySelector('button').remove();
   });
 
   beforeEach(() => {
@@ -30,7 +25,7 @@ describe('reconnect target', () => {
     );
   });
 
-  it('reconnects actions', () => {
+  it('attaches actions', () => {
     let button = document.querySelector('button');
     button.click();
     expect(button.innerHTML).toEqual('Clicked');

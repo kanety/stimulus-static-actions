@@ -7,11 +7,7 @@ export default class ActionSetter {
     this.controller = context.controller;
 
     let definitions = readInheritableStaticArrayValues(this.controller.constructor, 'actions');
-    this.actions = this.compile(definitions);
-  }
-
-  compile(definitions) {
-    return definitions.map((definition) => {
+    this.actions = definitions.map((definition) => {
       return new Action(this.controller.identifier, definition);
     });
   }
@@ -57,10 +53,10 @@ export default class ActionSetter {
 
   attachAction(target, action) {
     let description = action.description;
-    let currentActions = (target.dataset['action'] || '').split(' ');
-    if (!currentActions.some((ca) => ca == description)) {
-      currentActions.push(description);
+    let currentDescriptions = (target.dataset['action'] || '').split(' ');
+    if (!currentDescriptions.some((currentDescription) => currentDescription == description)) {
+      currentDescriptions.push(description);
     }
-    target.dataset['action'] = currentActions.join(' ').trim();
+    target.dataset['action'] = currentDescriptions.join(' ').trim();
   }
 }

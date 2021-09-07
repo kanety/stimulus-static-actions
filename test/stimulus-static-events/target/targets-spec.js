@@ -21,9 +21,10 @@ describe('target', () => {
       </div>`;
   });
 
-  it('calls event listener', () => {
+  it('calls action', () => {
     let buttons = document.querySelectorAll('button');
-    buttons.forEach((button) => button.click());
+    buttons[0].click();
+    buttons[1].click();
     expect(buttons[0].innerHTML).toEqual('Clicked');
     expect(buttons[1].innerHTML).toEqual('Clicked');
   });

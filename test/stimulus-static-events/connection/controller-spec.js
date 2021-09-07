@@ -31,7 +31,7 @@ describe('reconnect controller', () => {
       </div>`;
   });
 
-  it('reconnects actions', () => {
+  it('attaches actions', () => {
     let button = document.querySelector('button');
     button.click();
     expect(button.innerHTML).toEqual('Clicked');

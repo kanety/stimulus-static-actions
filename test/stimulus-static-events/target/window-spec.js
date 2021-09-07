@@ -19,7 +19,7 @@ describe('target window', () => {
       </div>`;
   });
 
-  it('calls event listener', () => {
+  it('calls action', () => {
     let button = document.querySelector('button');
     button.click();
     expect(button.innerHTML).toEqual('Clicked');
