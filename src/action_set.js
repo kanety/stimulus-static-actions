@@ -1,25 +1,40 @@
 import Action from './action';
 import { readInheritableStaticArrayValues } from './inheritable_statics';
 
-export default class ActionSetter {
+export default class ActionSet {
   constructor(context) {
     this.context = context;
     this.controller = context.controller;
-
-    let definitions = readInheritableStaticArrayValues(this.controller.constructor, 'actions');
-    this.actions = definitions.map((definition) => {
-      return new Action(this.controller.identifier, definition);
-    });
+    this.actions = [];
   }
 
   run() {
-    this.actions.forEach((action) => {
+    this.add(readInheritableStaticArrayValues(this.controller.constructor, 'actions'));
+  }
+
+  add(definitions) {
+    let actions = definitions.map((definition) => new Action(this.controller.identifier, definition));
+
+    actions.forEach((action) => {
       let targets = this.resolveTargets(action);
       targets.forEach((target) => {
-        this.attachAction(target, action);
+        this.addAction(target, action);
       });
+      this.actions.push(action);
     });
-  };
+  }
+
+  remove(definitions) {
+    let actions = definitions.map((definition) => new Action(this.controller.identifier, definition));
+
+    actions.forEach((action) => {
+      let targets = this.resolveTargets(action);
+      targets.forEach((target) => {
+        this.removeAction(target, action);
+      });
+      this.actions = this.actions.filter((a) => a.description != action.description);
+    });
+  }
 
   resolveTargets(action) {
     let targets = this.findTargets(action.name);
@@ -51,12 +66,19 @@ export default class ActionSetter {
     });
   }
 
-  attachAction(target, action) {
+  addAction(target, action) {
     let description = action.description;
     let currentDescriptions = (target.dataset['action'] || '').split(' ');
     if (!currentDescriptions.some((currentDescription) => currentDescription == description)) {
       currentDescriptions.push(description);
     }
+    target.dataset['action'] = currentDescriptions.join(' ').trim();
+  }
+
+  removeAction(target, action) {
+    let description = action.description;
+    let currentDescriptions = (target.dataset['action'] || '').split(' ');
+    currentDescriptions = currentDescriptions.filter((currentDescription) => currentDescription != description);
     target.dataset['action'] = currentDescriptions.join(' ').trim();
   }
 }

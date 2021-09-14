@@ -17,9 +17,9 @@
     "action"
   ],
   "scripts": {
-    "watch": "NODE_ENV=development node_modules/microbundle/dist/cli watch",
-    "build": "NODE_ENV=production node node_modules/microbundle/dist/cli build",
-    "test": "NODE_ENV=test node node_modules/jest/bin/jest"
+    "watch": "node_modules/microbundle/dist/cli watch",
+    "build": "node node_modules/microbundle/dist/cli build",
+    "test": "node node_modules/jest/bin/jest"
   },
   "dependencies": {
     "@hotwired/stimulus": "^3.0.0-beta.1"

@@ -21,7 +21,7 @@ describe('connect target', () => {
 
   beforeEach(() => {
     document.querySelector('div').insertAdjacentHTML('beforeend',
-      '<button type="button" id="button" data-test-target="button">Test</button>'
+      '<button type="button" data-test-target="button">Test</button>'
     );
   });
 
