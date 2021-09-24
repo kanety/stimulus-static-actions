@@ -17,15 +17,15 @@
     "action"
   ],
   "scripts": {
-    "watch": "node_modules/microbundle/dist/cli watch",
-    "build": "node node_modules/microbundle/dist/cli build",
-    "test": "node node_modules/jest/bin/jest"
+    "watch": "node_modules/microbundle/dist/cli.js watch --globals @hotwired/stimulus=Stimulus",
+    "build": "node_modules/microbundle/dist/cli.js build --globals @hotwired/stimulus=Stimulus",
+    "test": "node_modules/jest/bin/jest.js"
   },
   "dependencies": {
-    "@hotwired/stimulus": "^3.0.0-beta.1"
+    "@hotwired/stimulus": "^3.0.0"
   },
   "peerDependencies": {
-    "@hotwired/stimulus": "^3.0.0-beta.1"
+    "@hotwired/stimulus": "^3.0.0"
   },
   "devDependencies": {
     "@babel/core": "^7.15.0",
