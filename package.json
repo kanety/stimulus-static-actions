@@ -19,7 +19,8 @@
   "scripts": {
     "watch": "node_modules/microbundle/dist/cli.js watch --globals @hotwired/stimulus=Stimulus",
     "build": "node_modules/microbundle/dist/cli.js build --globals @hotwired/stimulus=Stimulus",
-    "test": "node_modules/jest/bin/jest.js"
+    "test": "node_modules/jest/bin/jest.js",
+    "start": "http-server"
   },
   "dependencies": {
     "@hotwired/stimulus": "^3.0.0"

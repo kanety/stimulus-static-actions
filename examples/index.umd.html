@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <script src="/node_modules/@hotwired/stimulus/dist/stimulus.umd.js"></script>
+  <script src="/dist/index.umd.js"></script>
+  <script>
+    const application = Stimulus.Application.start();
+    application.register('sample', class extends Stimulus.Controller {
+      static targets = ['button'];
+      static actions = [['button', 'click->alert']];
+
+      alert(e) {
+        alert('Clicked!');
+      }
+    });
+  </script>
+</head>
+<body>
+  <div data-controller="sample">
+    <button type="button" data-sample-target="button">Click me</button>
+  </div>
+</body>
+</html>
