@@ -4,7 +4,7 @@ A stimulus extension to define actions in controller.
 
 ## Dependencies
 
-* stimulus 3.0.0-beta.1
+* stimulus 3.0
 
 ## Installation
 

@@ -1,11 +1,12 @@
 {
   "name": "@kanety/stimulus-static-actions",
   "description": "A stimulus extension to define actions in controller",
-  "version": "0.1.1",
+  "version": "1.0.0",
   "source": "src/index.js",
   "main": "./dist/index.js",
   "umd:main": "./dist/index.umd.js",
   "module": "./dist/index.module.js",
+  "exports": "./dist/index.modern.js",
   "author": "Yoshikazu Kaneta <kaneta@sitebridge.co.jp>",
   "license": "MIT",
   "repository": {
@@ -23,9 +24,6 @@
     "start": "http-server"
   },
   "dependencies": {
-    "@hotwired/stimulus": "^3.0.0"
-  },
-  "peerDependencies": {
     "@hotwired/stimulus": "^3.0.0"
   },
   "devDependencies": {
