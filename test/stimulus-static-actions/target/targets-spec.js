@@ -22,10 +22,9 @@ describe('target', () => {
   });
 
   it('calls action', () => {
-    let buttons = document.querySelectorAll('button');
-    buttons[0].click();
-    buttons[1].click();
-    expect(buttons[0].innerHTML).toEqual('Clicked');
-    expect(buttons[1].innerHTML).toEqual('Clicked');
+    $$('button')[0].click();
+    $$('button')[1].click();
+    expect($$('button')[0].innerHTML).toEqual('Clicked');
+    expect($$('button')[1].innerHTML).toEqual('Clicked');
   });
 });

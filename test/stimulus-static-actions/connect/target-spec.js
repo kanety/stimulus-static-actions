@@ -20,14 +20,13 @@ describe('connect target', () => {
   });
 
   beforeEach(() => {
-    document.querySelector('div').insertAdjacentHTML('beforeend',
+    $('div').insertAdjacentHTML('beforeend',
       '<button type="button" data-test-target="button">Test</button>'
     );
   });
 
   it('attaches actions', () => {
-    let button = document.querySelector('button');
-    button.click();
-    expect(button.innerHTML).toEqual('Clicked');
+    $('button').click();
+    expect($('button').innerHTML).toEqual('Clicked');
   });
 });

@@ -4,7 +4,7 @@ class TestController extends Controller {
   static actions = [['element', 'click->show']];
 
   show(e) {
-    document.querySelector('button').innerHTML = 'Clicked';
+    $('button').innerHTML = 'Clicked';
   }
 }
 
@@ -20,8 +20,7 @@ describe('target element', () => {
   });
 
   it('calls action', () => {
-    let button = document.querySelector('button');
-    button.click();
-    expect(button.innerHTML).toEqual('Clicked');
+    $('button').click();
+    expect($('button').innerHTML).toEqual('Clicked');
   });
 });

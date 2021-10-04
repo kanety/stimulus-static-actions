@@ -7,10 +7,14 @@ export default class Action {
   };
 
   get description() {
-    if (this.descriptor.includes('->')) {
-      return this.descriptor.replace(/->/, `->${this.identifier}#`);
+    let descriptor = this.descriptor;
+    if (descriptor.match(/^:/)) {
+      descriptor = descriptor.replace(/^:/, `${this.identifier}:`)
+    }
+    if (descriptor.includes('->')) {
+      return descriptor.replace(/->/, `->${this.identifier}#`);
     } else {
-      return `${this.identifier}#${this.descriptor}`;
+      return `${this.identifier}#${descriptor}`;
     }
   }
 }

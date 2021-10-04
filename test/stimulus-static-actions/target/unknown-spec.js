@@ -20,8 +20,7 @@ describe('target window', () => {
   });
 
   it('does not call action', () => {
-    let button = document.querySelector('button');
-    button.click();
-    expect(button.innerHTML).toEqual('Test');
+    $('button').click();
+    expect($('button').innerHTML).toEqual('Test');
   });
 });

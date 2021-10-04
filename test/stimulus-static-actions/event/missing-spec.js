@@ -21,8 +21,7 @@ describe('missing event type', () => {
   });
 
   it('calls action', () => {
-    let button = document.querySelector('button');
-    button.click();
-    expect(button.innerHTML).toEqual('Clicked');
+    $('button').click();
+    expect($('button').innerHTML).toEqual('Clicked');
   });
 });
