@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## 1.0.1
+
+* Add identifier to actions for custom event.
+
 ## 1.0.0
 
 * Fix stimulus version to 3.0.

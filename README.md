@@ -4,7 +4,7 @@ A stimulus extension to define actions in controller.
 
 ## Dependencies
 
-* stimulus 3.0
+* @hotwired/stimulus 3.0
 
 ## Installation
 
@@ -44,7 +44,7 @@ They are also attached when target elements are added in the controller.
 Action definition takes 3 arguments:
 
 1. target element to attach actions
-2. event type and method name, which is same as `data-action` of stimulus
+2. action description like `data-action` of stimulus
 3. options
 
 ### Target element
@@ -64,6 +64,32 @@ class TestController extends Controller {
     ['element', 'click->show']  // specify element of stimulus controller
   ];
 ```
+
+### Action description
+
+Action description is almost same as `data-action` of stimulus,
+but identifier of controller is automatically recognized.
+
+For example:
+
+```javascript
+class TestController extends Controller {
+  static targets = ['button'];
+  static actions = [
+    ['button', 'show'],  // equal to test#show
+    ['button', 'click->show'],  // equal to click->test#show
+    ['button', ':custom->show']  // equal to test:custom->test#show
+  ];
+```
+
+This controller attaches `data-action` attribute as follows:
+
+```html
+<div data-controller="test">
+  <button data-action="click->test#show test:custom->test#show"></button>
+</div>
+```
+
 
 ### Options
 
