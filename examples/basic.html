@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <script type="importmap">
+    {
+      "imports": {
+        "@hotwired/stimulus": "/node_modules/@hotwired/stimulus/dist/stimulus.js",
+        "@kanety/stimulus-static-actions": "/dist/index.module.mjs"
+      }
+    }
+  </script>
+  <script type="module">
+    import { Application, Controller } from '@hotwired/stimulus';
+    import '@kanety/stimulus-static-actions';
+
+    const application = Application.start();
+    application.register('sample', class extends Controller {
+      static targets = ['button'];
+      static actions = [['button', 'click->alert']];
+
+      alert(e) {
+        alert('Clicked!');
+      }
+    });
+  </script>
+</head>
+<body>
+  <div data-controller="sample">
+    <button type="button" data-sample-target="button">Click me</button>
+  </div>
+</body>
+</html>
