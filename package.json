@@ -17,20 +17,23 @@
     "action"
   ],
   "scripts": {
-    "watch": "node_modules/microbundle/dist/cli.js watch --globals @hotwired/stimulus=Stimulus",
-    "build": "node_modules/microbundle/dist/cli.js build --globals @hotwired/stimulus=Stimulus",
-    "test": "node_modules/jest/bin/jest.js",
+    "watch": "rollup -c -w",
+    "build": "rollup -c",
+    "test": "jest",
     "start": "http-server -c-1"
   },
   "devDependencies": {
-    "@babel/core": "^7.24.7",
-    "@babel/plugin-transform-class-properties": "^7.24.7",
-    "@babel/plugin-transform-private-methods": "^7.24.7",
-    "@babel/plugin-transform-private-property-in-object": "^7.24.7",
-    "@babel/preset-env": "^7.24.7",
+    "@babel/core": "^7.28.5",
+    "@babel/preset-env": "^7.28.5",
+    "@rollup/plugin-babel": "^6.1.0",
+    "@rollup/plugin-commonjs": "^29.0.0",
+    "@rollup/plugin-node-resolve": "^16.0.3",
+    "@rollup/plugin-terser": "^0.4.4",
+    "http-server": "^14.1.1",
     "jest": "^29.7.0",
     "jest-environment-jsdom": "^29.7.0",
-    "microbundle": "^0.15.1"
+    "rollup": "^2.79.2",
+    "rollup-plugin-bundle-size": "^1.0.3"
   },
   "peerDependencies": {
     "@hotwired/stimulus": "^3.0.0"
